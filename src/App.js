@@ -1,18 +1,25 @@
-import Footer from "./components/Footer";
-import Header from "./components/Header";
-import List from "./components/List";
-import PopUp from "./components/PopUp";
+import { useState } from "react";
 
 function App() {
-  const isPopUp = false;
-  const isFooter = true;
+  const [dgree, setDgree] = useState(0);
+
   return (
     <>
-      <Header />
-      {isFooter && <Footer />}
-      {isPopUp ? <PopUp /> : null}
-      <List />
-      {/* <PopUp /> */}
+      <article style={{ transform: `rotate(${dgree})deg` }}>{dgree}</article>
+      <button
+        onClick={() => {
+          setDgree(dgree - 45);
+        }}
+      >
+        왼쪽으로 회전
+      </button>
+      <button
+        onClick={() => {
+          setDgree(dgree + 45);
+        }}
+      >
+        오른쪽으로 회전
+      </button>
     </>
   );
 }
