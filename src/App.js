@@ -1,7 +1,17 @@
+import Footer from "./components/Footer";
+import Header from "./components/Header";
+import PopUp from "./components/PopUp";
+
 function App() {
-	return (
-		<h1>Hello</h1>
-	);
+  const isPopUp = false;
+  return (
+    <>
+      <Header />
+      <Footer />
+      {isPopUp ? <PopUp /> : null}
+      {/* <PopUp /> */}
+    </>
+  );
 }
 
 export default App;
