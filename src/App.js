@@ -1,25 +1,15 @@
 import { useState } from "react";
+import PopUp from "./components/PopUp";
 import "./style.scss";
 
 function App() {
-  const [dgree, setDgree] = useState(0);
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
     <>
-      <article style={{ transform: `rotate(${dgree}deg)` }}>{dgree}</article>
-      <button
-        onClick={() => {
-          setDgree(dgree - 45);
-        }}
-      >
-        왼쪽으로 회전
-      </button>
-      <button
-        onClick={() => {
-          setDgree(dgree + 45);
-        }}
-      >
-        오른쪽으로 회전
-      </button>
+      <button onClick={() => setIsOpen(true)}>팝업 열기</button>
+      <button onClick={() => setIsOpen(false)}>팝업 닫기</button>
+      {isOpen && <PopUp />}
     </>
   );
 }
