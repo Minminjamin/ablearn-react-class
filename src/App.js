@@ -1,15 +1,24 @@
-import { useState } from "react";
-import PopUp from "./components/PopUp";
+import { useRef } from "react";
 import "./style.scss";
 
 function App() {
-  const [isOpen, setIsOpen] = useState(false);
+  // const [num, setNum] = useState(0);
+  let num = useRef(0);
+  let box = useRef(null);
+
+  const prev = () => {
+    box.current.style.transform = `rotate(${--num.current * 45}deg)`;
+  };
+  const next = () => {
+    box.current.style.transform = `rotate(${++num.current * 45}deg)`;
+  };
 
   return (
     <>
-      <button onClick={() => setIsOpen(true)}>팝업 열기</button>
-      <button onClick={() => setIsOpen(false)}>팝업 닫기</button>
-      {isOpen && <PopUp />}
+      <button onClick={prev}>prev</button>
+      <button onClick={next}>next</button>
+
+      <article ref={box}></article>
     </>
   );
 }
