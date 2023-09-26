@@ -1,11 +1,7 @@
 import React from "react";
 
 const PopUp = () => {
-  return (
-    <div>
-      <h2>팝업</h2>
-    </div>
-  );
+  return <aside>PopUp</aside>;
 };
 
 export default PopUp;
